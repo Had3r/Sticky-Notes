@@ -1,19 +1,34 @@
 {
   "name": "sticky-notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "truly sticky app for notes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Had3r/Sticky-Notes.git"
+    "compile:sass": "node-sass src/sass/main.scss src/css/style.css -w",
+    "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 version\" src/css/style.css -o src/css/style.prefix.css",
+    "compress:css": "node-sass src/css/style.prefix.css dist/css/style.css --output-style compressed",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "author": "Adrian",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Had3r/Sticky-Notes/issues"
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "autoprefixer": "^9.3.1",
+    "babel-loader": "^8.0.4",
+    "html-webpack-plugin": "^3.2.0",
+    "hyperscript-helpers": "^3.0.3",
+    "node-sass": "^4.10.0",
+    "postcss-cli": "^6.0.1",
+    "virtual-dom": "^2.1.1",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
-  "homepage": "https://github.com/Had3r/Sticky-Notes#readme"
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  }
 }
