@@ -1,5 +1,5 @@
 #app {
-    min-width: 120rem;
+    max-width: 120rem;
 }
 
 .wrapper {
@@ -13,10 +13,7 @@
 
 .btn {
     margin: 3rem auto;
-    border: none;
-    background-color: white;
-    border: 1px solid black;
-    //outline: none;
+    
 }
 
 .fa-plus {

@@ -1,7 +1,7 @@
 
 
 function update(msg, model) {
-    return model;
+	return model;
 }
 
 export default update;
