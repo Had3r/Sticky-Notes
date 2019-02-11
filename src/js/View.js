@@ -1,6 +1,7 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
+import { newCardMsg } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
@@ -73,6 +74,48 @@ function viewCard(dispatch, card) {
 	);
 }
 
+function editAnswer(dispatch, card) {
+	return div({ className: ''}, [
+		h2({ className: 'sec-header' }, 'Odpowiedź'),
+		textarea({
+			className: 'textarea',
+			value: card.answer,
+		})
+	]);
+}
+
+function editQuestion(dispatch, card) {
+	return div({ className: '' }, [
+		h2({ className: 'sec-header' }, 'Pytanie'),
+		textarea({
+			className: 'textarea',
+			value: card.question,
+
+		}),
+	]);
+}
+
+
+function editCard(dispatch, card) {
+	return div(
+		{
+			className: 'card'
+		},
+		div(
+			{
+				className: ''
+			},
+			[
+				editQuestion(dispatch, card),
+				editAnswer(dispatch, card),
+				button({ className: 'secondary-btn' }, i({ className: 'far fa-save'})),
+				remove(dispatch, card),
+			],
+			
+		)
+	)
+}
+
 const card = R.curry((dispatch, card) => {
 	const { edit } = card;
 	return edit ? editCard(dispatch, card) : viewCard(dispatch, card);
@@ -92,7 +135,8 @@ function view(dispatch, model) {
 		),
 		button(
 			{
-				className: 'btn'
+				className: 'btn',
+				onclick: () => dispatch(newCardMsg),
 			},
 			span('Dodaj pytanie'),
 		),

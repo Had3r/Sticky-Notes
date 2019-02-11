@@ -6,7 +6,7 @@ const initModel = {
 			question: 'Czym jest spread operator?',
 			answer: 'Operator ten rozbija powatarzalne dane (jak tablice, ciągli znaków) na pojedyńcze elementy.',
 			rank: 0,
-			showAnswer: true,
+			showAnswer: false,
 			edit: false,
 		},
 		{

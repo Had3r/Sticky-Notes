@@ -43,6 +43,7 @@
   box-shadow: 2px 3px 16px 0px rgba(0,0,0,0.75);
   padding: 1rem;
   margin: 1rem;
+  background-color: #ddd;
 }
 
 .buttonSet {
@@ -66,5 +67,17 @@
 }
 
 .text {
+  font-size: 2.2rem;
+}
+
+
+////////////////////////////////////
+///////////////// edit cards
+
+.textarea {
+  width: 100%;
+  padding: .5rem;
+  background-color: #eee;
+  font-family: inherit;
   font-size: 2.2rem;
 }
