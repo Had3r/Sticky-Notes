@@ -2,7 +2,13 @@ import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
 
-const { pre, div, h1, button, span, textarea, a, i } = hh(h);
+const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
+
+function remove(dispatch, card) {
+	return i({
+		className: 'far fa-trash-alt'
+	});
+}
 
 function btn(dispatch, card) {
 	const { showAnswer } = card;
@@ -12,13 +18,13 @@ function btn(dispatch, card) {
 			},
 			[
 				button(
-					{ className: 'button' }, 
-						i({ className: 'far fa-smile'})),
+					{ className: 'secondary-btn' }, 
+						i({ className: 'far fa-frown'})),
 				button(
-					{ className: 'button' },
+					{ className: 'secondary-btn' },
 						i({ className: 'far fa-meh'})),
 				button(
-					{ className: 'button' },
+					{ className: 'secondary-btn' },
 						i({ className: 'far fa-smile'})),
 			]
 			)
@@ -29,29 +35,28 @@ function answer(dispatch, card) {
 	const { showAnswer } = card;
 	return showAnswer
 		? div([
-				div({ className: '' }, 'Answer'),
-				div({ className: ''},
+				h2({ className: 'sec-header' }, 'Odpowiedź'),
+				div({ className: 'text'},
 				card.answer,
 				),
 		])
-		: div([
+		: h2([
 				a(
 					{
-						className: ''
+						className: 'sec-header'
 					},
-					'Show Answer'
+					'Pokaż odpowiedź'
 				)
-		])
+		]);
 }
 
 function question(dispatch, card) {
 	return div({ className: ''}), [
-		div({ className: 'question'}, 'Question'),
-		div({
-			className: 'text',
-			value: card.question,
-		})
-	]
+		h2({ className: 'sec-header'}, 'Pytanie'),
+		div({ className: 'text'},
+		card.question,
+		),
+	];
 }
 
 function viewCard(dispatch, card) {
@@ -63,6 +68,7 @@ function viewCard(dispatch, card) {
 			question(dispatch, card),
 			answer(dispatch, card),
 			btn(dispatch, card),
+			remove(dispatch, card)
 		],
 	);
 }
@@ -88,10 +94,10 @@ function view(dispatch, model) {
 			{
 				className: 'btn'
 			},
-			span('Add Questions'),
+			span('Dodaj pytanie'),
 		),
 		div({ className: 'cards' }, cards),
-		pre({ className: 'test'}, JSON.stringify(model, null, 3))
+		//pre({ className: 'test'}, JSON.stringify(model, null, 3))
 	])
 }
 

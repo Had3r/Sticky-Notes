@@ -1,0 +1,15 @@
+@mixin btnWireframe {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  border-radius: 50%;
+  transition: transform .2s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+}

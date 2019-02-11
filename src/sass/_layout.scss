@@ -13,9 +13,22 @@
 
 .btn {
     margin: 3rem auto;
-    
 }
 
 .fa-plus {
     margin-right: 5px;
+}
+
+.card {
+    position: relative;
+}
+
+.cards {
+    margin-top: 2rem;
+}
+
+.fa-trash-alt {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

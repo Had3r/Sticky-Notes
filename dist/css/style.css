@@ -12,7 +12,6 @@ html {
 body {
   font-family: "Patrick Hand", sans-serif;
   font-weight: 400;
-  font-size: 2rem;
   line-height: 1.7;
   background: #EEE; }
 
@@ -22,7 +21,7 @@ body {
 .btn span {
   background: #FFF;
   display: block;
-  padding: 5px 15px;
+  padding: 0 15px;
   border-radius: 5px;
   border: 2px solid #000; }
 
@@ -31,7 +30,6 @@ body {
 
 .btn:active {
   top: 4px;
-  padding-bottom: 0px;
   box-shadow: 0 1px 0 #000; }
 
 .btn {
@@ -52,9 +50,7 @@ body {
 .card {
   border: 1px solid black;
   box-shadow: 2px 3px 16px 0px rgba(0, 0, 0, 0.75);
-  padding: 1rem; }
-
-.card {
+  padding: 1rem;
   margin: 1rem; }
 
 .buttonSet {
@@ -63,13 +59,26 @@ body {
 
 .far {
   cursor: pointer;
-  padding: 1rem;
+  padding: 5px;
   font-size: 2rem; }
 
-.button {
+.secondary-btn, .fa-trash-alt {
   border: none;
   background-color: transparent;
-  outline: none; }
+  outline: none;
+  border-radius: 50%;
+  transition: transform .2s; }
+  .secondary-btn:hover, .fa-trash-alt:hover {
+    background-color: #ddd; }
+  .secondary-btn:active, .fa-trash-alt:active {
+    transform: translateY(3px); }
+
+.sec-header {
+  font-size: 1.7rem;
+  text-decoration: underline; }
+
+.text {
+  font-size: 2.2rem; }
 
 #app {
   max-width: 120rem; }
@@ -86,3 +95,14 @@ body {
 
 .fa-plus {
   margin-right: 5px; }
+
+.card {
+  position: relative; }
+
+.cards {
+  margin-top: 2rem; }
+
+.fa-trash-alt {
+  position: absolute;
+  top: 0;
+  right: 0; }

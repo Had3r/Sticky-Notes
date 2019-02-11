@@ -4,11 +4,11 @@
 }
 
 ///////////////////////////
-/////////////////// buttons 
+/////////////////// main button 
 .btn span {
     background: #FFF;
     display: block;
-    padding: 5px 15px;
+    padding: 0 15px;
     border-radius: 5px;
     border: 2px solid #000;
   }
@@ -17,7 +17,7 @@
   }
   .btn:active {
     top: 4px;
-    padding-bottom: 0px;
+    //padding-bottom: 0px;
     box-shadow: 0 1px 0 #000;
   }
   .btn {
@@ -42,26 +42,29 @@
   border: 1px solid black;
   box-shadow: 2px 3px 16px 0px rgba(0,0,0,0.75);
   padding: 1rem;
-}
-
-.card {
   margin: 1rem;
 }
 
 .buttonSet {
   display: flex;
   justify-content: space-evenly;
-
 }
 
 .far {
   cursor: pointer;
-  padding: 1rem;
+  padding: 5px;
   font-size: 2rem;
 }
 
-.button {
-  border: none;
-  background-color: transparent;
-  outline: none;
+.secondary-btn, .fa-trash-alt {                          
+  @include btnWireframe;
+}
+
+.sec-header {
+  font-size: 1.7rem;
+  text-decoration: underline;
+}
+
+.text {
+  font-size: 2.2rem;
 }
