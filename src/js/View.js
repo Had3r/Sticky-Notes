@@ -1,13 +1,14 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
-import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg, editCardMsg } from './Update';
+import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg, editCardMsg, deleteCardMsg } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
 function remove(dispatch, card) {
 	return i({
 		className: 'far fa-trash-alt',
+		onclick: () => dispatch(deleteCardMsg(card.id)),
 	});
 }
 

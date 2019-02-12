@@ -6,6 +6,7 @@ const MSGS = {
 	ANSWER_INPUT: 'ANSWER_INPUT',
 	SAVE: 'SAVE',
 	EDIT_CARD: 'EDIT_CARD',
+	DELETE_CARD: 'DELETE_CARD',
 }
 
 export const newCardMsg = {
@@ -32,14 +33,21 @@ export function answerInputMsg(id, answer) {
 		type: MSGS.ANSWER_INPUT,
 		answer,
 		id,
-	}
+	};
 }
 
 export function editCardMsg(id) {
 	return {
 		type: MSGS.EDIT_CARD,
 		id,
-	}
+	};
+}
+
+export function deleteCardMsg(id) {
+	return {
+		type: MSGS.DELETE_CARD,
+		id,
+	};
 }
 
 const updateCards = R.curry((updateCard, card) => {
@@ -92,6 +100,15 @@ function update(msg, model) {
 			const { id } = msg;
 			const { cards } = model;
 			const updatedCards = R.map(updateCards({ id, edit: true }), cards);
+			return { ...model, cards: updatedCards };
+		}
+		case MSGS.DELETE_CARD: {
+			const { id } = msg;
+			const { cards } = model;
+			const updatedCards = R.filter(
+				card => card.id !== id,
+				cards
+			);
 			return { ...model, cards: updatedCards };
 		}
 	}
