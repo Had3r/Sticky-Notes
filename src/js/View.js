@@ -1,7 +1,7 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
-import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg, editCardMsg, deleteCardMsg, showAnswerMsg } from './Update';
+import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg, editCardMsg, deleteCardMsg, showAnswerMsg, resultMsg, RESULTS } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
@@ -27,13 +27,19 @@ function btn(dispatch, card) {
 			},
 			[
 				button(
-					{ className: 'secondary-btn' }, 
+					{ className: 'secondary-btn',
+						onclick: () => dispatch(resultMsg(card.id, RESULTS.INCORRECT)),
+				}, 
 						i({ className: 'far fa-frown'})),
 				button(
-					{ className: 'secondary-btn' },
+					{ className: 'secondary-btn',
+						onclick: () => dispatch(resultMsg(card.id, RESULTS.GOOD)),
+				},
 						i({ className: 'far fa-meh'})),
 				button(
-					{ className: 'secondary-btn' },
+					{ className: 'secondary-btn',
+						onclick: () => dispatch(resultMsg(card.id, RESULTS.CORRECT)),
+				},
 						i({ className: 'far fa-smile'})),
 			]
 			)

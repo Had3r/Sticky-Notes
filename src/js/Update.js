@@ -8,6 +8,7 @@ const MSGS = {
 	EDIT_CARD: 'EDIT_CARD',
 	DELETE_CARD: 'DELETE_CARD',
 	SHOW_ANSWER: 'SHOW_ANSWER',
+	RESULT: 'RESULT',
 }
 
 export const newCardMsg = {
@@ -58,12 +59,26 @@ export function showAnswerMsg(id) {
 	};
 }
 
+export function resultMsg(id, result) {
+  return {
+    type: MSGS.RESULT,
+    id,
+    result,
+  };
+}
+
 const updateCards = R.curry((updateCard, card) => {
 	if (updateCard.id === card.id) {
 		return { ...card, ...updateCard };
 	}
 	return card;
 });
+
+export const RESULTS = {
+	INCORRECT: 0,
+	GOOD: 1,
+	CORRECT: 2,
+}
 
 function update(msg, model) {
 	console.log(msg);
@@ -124,6 +139,26 @@ function update(msg, model) {
 			const { cards } = model;
 			const updateCard = R.map(updateCards({ id, showAnswer: true }), cards);
 			return { ...model, cards: updateCard };
+		}
+		case MSGS.RESULT: {
+			const { id, result } = msg;
+			const { cards } = model;
+			const card = R.find(R.propEq('id', id), cards);
+
+			const rank = R.cond([
+				[R.propEq('result', RESULTS.INCORRECT), R.always(0)],
+				[R.propEq('result', RESULTS.GOOD), ({ rank }) => rank + 1],
+				[R.propEq('result', RESULTS.CORRECT), ({ rank }) => rank + 2],
+			])({ result, rank: card.rank });
+
+			const updatedCards = R.pipe(
+        R.map(updateCards({ id, showAnswer: false, rank })),
+        R.sortWith([
+          R.ascend(R.prop('rank')), 
+          R.descend(R.prop('id'))]
+        )
+      )(cards);
+      return { ...model, cards: updatedCards };
 		}
 	}
 	return model;
