@@ -63,7 +63,7 @@ const initModel = {
 			answer: 'Obietnica to obiekt, który sprawdza, czy pewne wydarzenie już się stało, czy nie. Jeśli się zdarzyło, wtedy obietnica określa, co stanie się później.',
 			rank: 0,
 			showAnswer: false,
-			edit: false,
+			edit: false, 
 		},
 	],
 };
