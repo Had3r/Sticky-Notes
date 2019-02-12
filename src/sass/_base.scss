@@ -1,20 +1,33 @@
+$bp-medium: 68.75em; // 1100px
+$bp-small: 40em; //640px
+
+$bg-color-primary: #EEE; 
+$bg-color-secondary: #FFF;
+$bg-color-tertiary: #ddd;
+
+$shadow-color-primary: #000;
+$shadow-color-secondary: #f03755;
+
+
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+	box-sizing: inherit;	
+	margin: 0;
+	padding: 0;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+	box-sizing: border-box;
+	font-size: 62.5%;
+
+	@media only screen and (min-width: $bp-medium) {
+			font-size: 70%;
+	}
 }
 
 body {
-    font-family: "Patrick Hand", sans-serif;
-    font-weight: 400;
-
-    line-height: 1.7;
-    background: #EEE;
+	font-family: "Patrick Hand", sans-serif;
+	line-height: 1.7;
+	background: $bg-color;
 }

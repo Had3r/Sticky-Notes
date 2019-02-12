@@ -1,5 +1,6 @@
 #app {
     max-width: 120rem;
+    margin: 8rem auto;
 }
 
 .wrapper {
@@ -15,16 +16,20 @@
     margin: 3rem auto;
 }
 
-.fa-plus {
-    margin-right: 5px;
-}
-
 .card {
     position: relative;
+    @media only screen and (min-width: $bp-small) {
+        min-width: 28rem;
+        margin: 2rem auto;
+    }
 }
 
 .cards {
     margin-top: 2rem;
+    @media only screen and (min-width: $bp-small) {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .fa-trash-alt {

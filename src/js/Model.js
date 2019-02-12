@@ -1,6 +1,46 @@
 const initModel = {
-	nextId: 3,
+	nextId: 8,
 	cards: [
+		{
+			id: 7,
+			question: 'Czym są immutable data?',
+			answer: 'To dane, które od momenty stworzenia się nie zmieniają.',
+			rank: 0,
+			showAnswer: false,
+			edit: false,
+		},
+		{
+			id: 6,
+			question: 'Czym są immutable data?',
+			answer: 'To dane, które od momenty stworzenia się nie zmieniają.',
+			rank: 0,
+			showAnswer: false,
+			edit: false,
+		},
+		{
+			id: 5,
+			question: 'Czym są immutable data?',
+			answer: 'To dane, które od momenty stworzenia się nie zmieniają.',
+			rank: 0,
+			showAnswer: false,
+			edit: false,
+		},
+		{
+			id: 4,
+			question: 'Czym są immutable data?',
+			answer: 'To dane, które od momenty stworzenia się nie zmieniają.',
+			rank: 0,
+			showAnswer: false,
+			edit: false,
+		},
+		{
+			id: 3,
+			question: 'Czym są immutable data?',
+			answer: 'To dane, które od momenty stworzenia się nie zmieniają.',
+			rank: 0,
+			showAnswer: false,
+			edit: false,
+		},
 		{
 			id: 2,
 			question: 'Czym jest spread operator?',
