@@ -2,9 +2,9 @@ import * as R from "ramda";
 
 const MSGS = {
 	NEW_CARD: 'NEW_CARD',
-	SAVE: 'SAVE',
 	QUESTION_INPUT: 'QUESTION_INPUT',
 	ANSWER_INPUT: 'ANSWER_INPUT',
+	SAVE: 'SAVE',
 }
 
 export const newCardMsg = {
@@ -71,7 +71,13 @@ function update(msg, model) {
 		case MSGS.ANSWER_INPUT: {
 			const { id, answer } = msg;
 			const { cards } = model;
-			const updatedCards = R.map(updateCards( { id, answer }), cards);
+			const updatedCards = R.map(updateCards({ id, answer }), cards);
+			return { ...model, cards: updatedCards };
+		}
+		case MSGS.SAVE: {
+			const { id } = msg;
+			const { cards } = model;
+			const updatedCards = R.map(updateCards({ id, edit: false }), cards);
 			return { ...model, cards: updatedCards };
 		}
 	}

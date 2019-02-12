@@ -1,7 +1,7 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
-import { newCardMsg, questionInputMsg, answerInputMsg } from './Update';
+import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
@@ -112,7 +112,7 @@ function editCard(dispatch, card) {
 				button(
 					{ 
 						className: 'secondary-btn', 
-						//onclick: () => dispatch(saveMsg(card.id)),
+						onclick: () => dispatch(saveMsg(card.id)),
 				}, 
 				i({ className: 'far fa-save'})),
 				remove(dispatch, card),
