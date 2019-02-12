@@ -4,10 +4,10 @@
   "description": "truly sticky app for notes",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss docs/css/style.css -w",
     "watch:sass": "node-sass src/sass/main.scss dist/css/style.css -w",
-    "prefix:css": "postcss --use autoprefixer -b \"last 10 version\" dist/css/style.css -o src/css/style.prefix.css",
-    "compress:css": "node-sass src/css/style.prefix.css dist/css/style.css --output-style compressed",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 version\" docs/css/style.css -o src/css/style.prefix.css",
+    "compress:css": "node-sass src/css/style.prefix.css docs/css/style.css --output-style compressed",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
