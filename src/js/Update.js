@@ -5,6 +5,7 @@ const MSGS = {
 	QUESTION_INPUT: 'QUESTION_INPUT',
 	ANSWER_INPUT: 'ANSWER_INPUT',
 	SAVE: 'SAVE',
+	EDIT_CARD: 'EDIT_CARD',
 }
 
 export const newCardMsg = {
@@ -30,6 +31,13 @@ export function answerInputMsg(id, answer) {
 	return {
 		type: MSGS.ANSWER_INPUT,
 		answer,
+		id,
+	}
+}
+
+export function editCardMsg(id) {
+	return {
+		type: MSGS.EDIT_CARD,
 		id,
 	}
 }
@@ -78,6 +86,12 @@ function update(msg, model) {
 			const { id } = msg;
 			const { cards } = model;
 			const updatedCards = R.map(updateCards({ id, edit: false }), cards);
+			return { ...model, cards: updatedCards };
+		}
+		case MSGS.EDIT_CARD: {
+			const { id } = msg;
+			const { cards } = model;
+			const updatedCards = R.map(updateCards({ id, edit: true }), cards);
 			return { ...model, cards: updatedCards };
 		}
 	}

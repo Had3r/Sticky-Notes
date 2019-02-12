@@ -63,15 +63,15 @@ body {
   padding: 5px;
   font-size: 2rem; }
 
-.secondary-btn, .fa-trash-alt {
+.secondary-btn, .fa-trash-alt, .fa-edit {
   border: none;
   background-color: transparent;
   outline: none;
   border-radius: 50%;
   transition: transform .2s; }
-  .secondary-btn:hover, .fa-trash-alt:hover {
+  .secondary-btn:hover, .fa-trash-alt:hover, .fa-edit:hover {
     background-color: #ddd; }
-  .secondary-btn:active, .fa-trash-alt:active {
+  .secondary-btn:active, .fa-trash-alt:active, .fa-edit:active {
     transform: translateY(3px); }
 
 .sec-header {
@@ -114,3 +114,8 @@ body {
   position: absolute;
   top: 0;
   right: 0; }
+
+.fa-edit {
+  position: absolute;
+  top: 0;
+  right: 2.1rem; }

@@ -1,13 +1,20 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
-import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg } from './Update';
+import { newCardMsg, questionInputMsg, answerInputMsg, saveMsg, editCardMsg } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
 function remove(dispatch, card) {
 	return i({
-		className: 'far fa-trash-alt'
+		className: 'far fa-trash-alt',
+	});
+}
+
+function changeMode(dispatch, card) {
+	return i({
+		className: 'far fa-edit',
+		onclick: () => dispatch(editCardMsg(card.id)),
 	});
 }
 
@@ -69,7 +76,8 @@ function viewCard(dispatch, card) {
 			question(dispatch, card),
 			answer(dispatch, card),
 			btn(dispatch, card),
-			remove(dispatch, card)
+			remove(dispatch, card),
+			changeMode(dispatch, card),
 		],
 	);
 }
