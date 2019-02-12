@@ -3,6 +3,8 @@ import * as R from "ramda";
 const MSGS = {
 	NEW_CARD: 'NEW_CARD',
 	SAVE: 'SAVE',
+	QUESTION_INPUT: 'QUESTION_INPUT',
+	ANSWER_INPUT: 'ANSWER_INPUT',
 }
 
 export const newCardMsg = {
@@ -15,9 +17,25 @@ export function saveMsg(id) {
 		id,
 	};
 }
-                        // pierwsz arg to obiekt
+
+export function questionInputMsg(id, question) {
+	return {
+		type: MSGS.QUESTION_INPUT,
+		question,
+		id,
+	};
+}
+
+export function answerInputMsg(id, answer) {
+	return {
+		type: MSGS.ANSWER_INPUT,
+		answer,
+		id,
+	}
+}
+
 const updateCards = R.curry((updateCard, card) => {
-	if(updateCard.id === card.id) {
+	if (updateCard.id === card.id) {
 		return { ...card, ...updateCard };
 	}
 	return card;
@@ -44,10 +62,16 @@ function update(msg, model) {
 			nextId: id + 1 
 		};
 		}
-		case MSGS.SAVE: {
-			const { id } = msg;
+		case MSGS.QUESTION_INPUT: {
+			const { id, question } = msg;
 			const { cards } = model;
-			const updatedCards = R.map(updateCards({ id, edit: false }), cards);
+			const updatedCards = R.map(updateCards({ id, question }), cards);
+			return { ...model, cards: updatedCards };
+		}
+		case MSGS.ANSWER_INPUT: {
+			const { id, answer } = msg;
+			const { cards } = model;
+			const updatedCards = R.map(updateCards( { id, answer }), cards);
 			return { ...model, cards: updatedCards };
 		}
 	}

@@ -1,7 +1,7 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
 import * as R from 'ramda';
-import { newCardMsg, saveMsg } from './Update';
+import { newCardMsg, questionInputMsg, answerInputMsg } from './Update';
 
 const { pre, div, h1, h2, button, span, textarea, a, i } = hh(h);
 
@@ -80,6 +80,7 @@ function editAnswer(dispatch, card) {
 		textarea({
 			className: 'textarea',
 			value: card.answer,
+			oninput: e => dispatch(answerInputMsg(card.id, e.target.value)),
 		})
 	]);
 }
@@ -90,7 +91,7 @@ function editQuestion(dispatch, card) {
 		textarea({
 			className: 'textarea',
 			value: card.question,
-
+			oninput: e => dispatch(questionInputMsg(card.id, e.target.value)),
 		}),
 	]);
 }
@@ -108,10 +109,12 @@ function editCard(dispatch, card) {
 			[
 				editQuestion(dispatch, card),
 				editAnswer(dispatch, card),
-				button({ className: 'secondary-btn', 
-					onclick: () => dispatch(saveMsg(card.id))
-				}, i({ className: 'far fa-save'},	
-				)),
+				button(
+					{ 
+						className: 'secondary-btn', 
+						//onclick: () => dispatch(saveMsg(card.id)),
+				}, 
+				i({ className: 'far fa-save'})),
 				remove(dispatch, card),
 			],
 			
