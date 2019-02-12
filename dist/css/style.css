@@ -78,6 +78,9 @@ body {
   font-size: 1.7rem;
   text-decoration: underline; }
 
+.answ {
+  cursor: pointer; }
+
 .text {
   font-size: 2.2rem; }
 

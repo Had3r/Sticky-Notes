@@ -7,6 +7,7 @@ const MSGS = {
 	SAVE: 'SAVE',
 	EDIT_CARD: 'EDIT_CARD',
 	DELETE_CARD: 'DELETE_CARD',
+	SHOW_ANSWER: 'SHOW_ANSWER',
 }
 
 export const newCardMsg = {
@@ -46,6 +47,13 @@ export function editCardMsg(id) {
 export function deleteCardMsg(id) {
 	return {
 		type: MSGS.DELETE_CARD,
+		id,
+	};
+}
+
+export function showAnswerMsg(id) {
+	return {
+		type: MSGS.SHOW_ANSWER,
 		id,
 	};
 }
@@ -110,6 +118,12 @@ function update(msg, model) {
 				cards
 			);
 			return { ...model, cards: updatedCards };
+		}
+		case MSGS.SHOW_ANSWER: {
+			const { id } = msg;
+			const { cards } = model;
+			const updateCard = R.map(updateCards({ id, showAnswer: true }), cards);
+			return { ...model, cards: updateCard };
 		}
 	}
 	return model;
