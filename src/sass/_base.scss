@@ -8,7 +8,6 @@ $bg-color-tertiary: #ddd;
 $shadow-color-primary: #000;
 $shadow-color-secondary: #f03755;
 
-
 *,
 *::before,
 *::after {
@@ -29,5 +28,5 @@ html {
 body {
 	font-family: "Patrick Hand", sans-serif;
 	line-height: 1.7;
-	background: $bg-color;
+	background: $bg-color-primary;
 }

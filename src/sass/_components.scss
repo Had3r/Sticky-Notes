@@ -38,7 +38,7 @@
 ///////////// CARDS /////////////
 .card {
   border: .1rem solid $shadow-color-primary;
-  box-shadow: .2rem .3rem 1.6rem 0 $shadow-color-primary(0,0,0,0.75);
+  box-shadow: .2rem .3rem 1.6rem 0 rgba(0,0,0,0.75);
   padding: 1rem;
   margin: 1rem;
   background-color: $bg-color-tertiary;
