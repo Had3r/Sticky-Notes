@@ -36,6 +36,5 @@ npm install
 npm start
 ```
 
-## 
-Thank you for your interest in my project!
+## Thank you for your interest in my project!
 
