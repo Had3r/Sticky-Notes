@@ -20,7 +20,7 @@ with the maximum control of side effects.
 * NPM Scripts - to configure a simple page-building process. NPM allows me to execute task sequences after the project is completed, 
 like compilation **SASS**, prefixing, compressing
 
-## Preview
+### Preview
 
 https://had3r.github.io/Sticky-Notes/
 
@@ -29,11 +29,32 @@ https://had3r.github.io/Sticky-Notes/
 In your terminal, run:
 
 ```sh
+git clone https://github.com/Had3r/Sticky-Notes
+```
+
+```sh
 npm install
 ```
 
 ```sh
 npm start
+```
+
+### Architecture
+
+in the src folder (code for programming purposes)
+```bash
+|-- js
+        |-- App.js      - impure app function
+        |-- index.js    - imports other parts of the app
+        |-- Model.js    - data model
+        |-- Update.js   - update fn
+        |-- View.js     - view fn
+|-- sass
+        |-- _base.scss         - resets, breakpoints 
+        |-- _components.scss   - parts of the app
+        |-- _layout.scss    
+        |-- main.scss          - imports other files       
 ```
 
 ## Thank you for your interest in my project!
