@@ -24,7 +24,7 @@ like compilation **SASS**, prefixing, compressing
 
 https://had3r.github.io/Sticky-Notes/
 
-After clicking the answer, three icons will be displayed. After pressing the icon on the left (sad face), the question will be moved to the beginning. The middle icon moves the question to the middle, and the cheerful icon moves the question to the end of the list.
+After clicking "Pokaż odpowiedź", three icons will be displayed. After pressing the icon on the left (sad face), the question will be moved to the beginning. The middle icon moves the question to the middle, and the cheerful icon moves the question to the end of the list.
 
 ### Development
 
