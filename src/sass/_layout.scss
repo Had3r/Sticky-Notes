@@ -20,6 +20,7 @@
     position: relative;
     @media only screen and (min-width: $bp-small) {
         min-width: 28rem;
+        max-width: 30rem;
         margin: 2rem auto;
     }
 }
